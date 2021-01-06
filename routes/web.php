@@ -1,5 +1,6 @@
 <?php
-
+use Illuminate\Http\Request;
+use App\Buku;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,8 +13,48 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $fiksi          = \DB::table('buku')->where('kategori_id',"=",3)->get();
+    $nonFiksi      = \DB::table('buku')->where('kategori_id',"=",2)->get();
+    $komik         = \DB::table('buku')->where('kategori_id',"=",1)->get();
+        
+    return view('welcome')  
+        ->with('fiksi',$fiksi)
+        ->with('nonFiksi',$nonFiksi)
+        ->with('komik',$komik);
 });
+
+Route::get('/non-fiksi', function () {
+    $nonFiksi      = \DB::table('buku')->where('kategori_id',"=",2)->orderBy('created_at','desc')->get();
+    
+    return view('non-fiksi')  
+        ->with('nonFiksi',$nonFiksi);
+});
+Route::get('/fiksi', function () {
+    $fiksi          = \DB::table('buku')->where('kategori_id',"=",3)->orderBy('created_at','desc')->get();
+    
+    return view('fiksi')  
+        ->with('fiksi',$fiksi);
+});
+Route::get('/komik', function () {
+    $komik          = \DB::table('buku')->where('kategori_id',"=",1)->orderBy('created_at','desc')->get();
+    
+    return view('komik')  
+        ->with('komik',$komik);
+});
+
+Route::get('/cari',function(Request $request){
+    $title = $request->title;
+    $chKategori = $request->chKategori;
+    $cariBuku = Buku::where('kategori_id',"=",$chKategori);
+    if($title){
+        $cariBuku = $cariBuku->where('judul','like','%' .$title.'%')->get();
+    }
+    else{
+        $cariBuku = $cariBuku->get();
+    }
+    return view('search',['cariBuku'=>$cariBuku]);
+});
+
 
 Auth::routes();
 

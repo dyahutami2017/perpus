@@ -35,7 +35,7 @@ class BukuController extends Controller
         }
 
                       
-        $datas = Buku::with('kategori')->get();
+        $datas = Buku::with('kategori')->orderBy('created_at','desc')->get();
         //$datas = Buku::get();
         return view('buku.index')
             ->with('datas',$datas);
@@ -247,6 +247,13 @@ class BukuController extends Controller
         Buku::find($id)->delete();
         alert()->success('Berhasil.','Data telah dihapus!');
         return redirect()->route('buku.index');
+    }
+
+    public function cari(Request $request){
+        $cari = $request->cari;
+        $cariBuku = DB::table('buku')
+            ->where('judul','like',"%".$cari."%");
+            
     }
     
 }
