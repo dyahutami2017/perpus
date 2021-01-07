@@ -56,6 +56,7 @@
       overflow-wrap:break-word;
       white-space:pre-line;
       -ms-word-break :break-word;
+      line-height:17px;
     }
 
     
