@@ -89,5 +89,11 @@
               <span class="menu-title">Pesan Telegram</span>
             </a>
           </li>
-         
+          
+          <li class="nav-item"> 
+            <a class="nav-link" href="{{url('/berita')}}">
+              <i class="menu-icon mdi mdi-comment-alert"></i>
+              <span class="menu-title">Berita</span>
+            </a>
+          </li>
         </ul>

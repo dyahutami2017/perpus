@@ -1519,5 +1519,29 @@ p {
   -o-transition: all 0.3s ease-out 0s;
   transition: all 0.3s ease-out 0s;
   display: none; }
-  .back-to-top:hover {
-    color: #fff; }
+
+  .multiline-ellipsis {
+    display: block;
+    display: -webkit-box;
+    max-width: 400px;
+    margin: 0 auto;
+    font-size: 18px;
+    line-height: 1.4;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .ellipsis{
+    display: block;
+    display: -webkit-box;
+    max-width: 400px;
+    height: 100px;
+    margin: 0 auto;
+    font-size: 18px;
+    line-height: 1.4;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }

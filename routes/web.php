@@ -13,14 +13,16 @@ use App\Buku;
 */
 
 Route::get('/', function () {
-    $fiksi          = \DB::table('buku')->where('kategori_id',"=",3)->get();
+    $fiksi         = \DB::table('buku')->where('kategori_id',"=",3)->get();
     $nonFiksi      = \DB::table('buku')->where('kategori_id',"=",2)->get();
     $komik         = \DB::table('buku')->where('kategori_id',"=",1)->get();
+    $berita        = \DB::table('berita')->get();
         
     return view('welcome')  
         ->with('fiksi',$fiksi)
         ->with('nonFiksi',$nonFiksi)
-        ->with('komik',$komik);
+        ->with('komik',$komik)
+        ->with('berita',$berita);
 });
 
 Route::get('/non-fiksi', function () {
@@ -54,6 +56,12 @@ Route::get('/cari',function(Request $request){
     }
     return view('search',['cariBuku'=>$cariBuku]);
 });
+
+Route::get('/detail-berita', function(){
+    return view('detail-berita');
+});
+
+Route::get('/detail-berita/{id}', 'BeritaController@detail');
 
 
 Auth::routes();
@@ -91,3 +99,14 @@ Route::post('/send-message','TelegramBotController@storeMessage');
 Route::get('/send-photo', 'TelegramBotController@sendPhoto');
 Route::post('/store-photo', 'TelegramBotController@storePhoto');
 Route::post('/send-announce','TelegramBotController@storeAnnounce')->name('pilihBuku');
+
+//Berita
+Route::get('/berita','BeritaController@index');
+Route::get('/berita/tambah','BeritaController@tambah');
+Route::post('/berita/upload','BeritaController@upload');
+
+Route::get('/berita/hapus/{id}','BeritaController@hapus');
+Route::get('/berita/edit/{id}','BeritaController@edit');
+Route::post('/berita/update/','BeritaController@update');
+
+

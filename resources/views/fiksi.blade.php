@@ -87,25 +87,34 @@
                             </button>
 
                             <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
-                            <ul id="nav" class="navbar-nav ml-auto">
+                                <ul id="nav" class="navbar-nav ml-auto">
                                     <li class="nav-item">
-                                        <a class="page-scroll" href= "/">Home</a>
+                                        <a class="page-scroll" href="/#home">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="page-scroll" href="/#jumlah">Jumlah Buku</a>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Kategori
+                                        <a class="page-scroll" href="/#kategori">Kategori</a>
+                                        <!-- <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Kategori
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                             <a class="dropdown-item text-dark text-center" href="/fiksi">Fiksi</a>
-                                            <a class="dropdown-item text-dark text-center" href="/non-fiksi">Non Fiksi</a>
+                                            <a class="dropdown-item text-dark text-center" href="/non-fiksi">Non
+                                                Fiksi</a>
                                             <a class="dropdown-item text-dark text-center" href="/komik">Komik</a>
-                                        </div>
+                                        </div> -->
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="page-scroll" href="/#berita">Berita</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="page-scroll" href="/#contact">Follow Us</a>
                                     </li>
                                 </ul>
                             </div> <!-- navbar collapse -->
-
-                            <!-- <div class="navbar-btn d-none d-sm-inline-block">
-                                <a class="main-btn" data-scroll-nav="0" href="#pricing">Free Trial</a>
-                            </div> -->
+                            
                         </nav> <!-- navbar -->
                     </div>
                 </div> <!-- row -->
@@ -162,7 +171,7 @@
                             <h2 class="subscribe-title">Ikuti terus info dari perpustakaan<span>dengan mengikuti channel telegram berikut</span></h2>
                         </div>
                     </div>
-                    <div class="col-lg-2">
+                    <div class="col-lg-2 text-center">
                         <div class="subscribe-form mt-50">
                             <a href="https://t.me/perpustewa"><img src="/landing-page/images/telegram.svg" alt="telegram" style="width:100px"></a>
                         </div>

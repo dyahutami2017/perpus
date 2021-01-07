@@ -18,7 +18,7 @@ $(function () {
             $(".navbar .navbar-brand img").attr("src", "/img/stewa.png");
         } else {
             $(".navbar-area").addClass("sticky");
-            $(".navbar .navbar-brand img").attr("src", "img/stewa.png");
+            $(".navbar .navbar-brand img").attr("src", "/img/stewa.png");
         }
     });
 

@@ -14,29 +14,29 @@
     <link rel="shortcut icon" href="{{asset('img/stewa.png')}}" type="image/png">
 
     <!--====== Animate CSS ======-->
-    <link rel="stylesheet" href="landing-page/css/animate.css">
+    <link rel="stylesheet" href="{{asset('landing-page/css/animate.css')}}">
 
     <!--====== Magnific Popup CSS ======-->
-    <link rel="stylesheet" href="landing-page/css/magnific-popup.css">
+    <link rel="stylesheet" href="{{asset('landing-page/css/magnific-popup.css')}}">
 
     <!--====== Slick CSS ======-->
-    <link rel="stylesheet" href="landing-page/css/slick.css">
+    <link rel="stylesheet" href="{{asset('landing-page/css/slick.css')}}">
 
     <!--====== Line Icons CSS ======-->
-    <link rel="stylesheet" href="landing-page/css/LineIcons.css">
+    <link rel="stylesheet" href="{{asset('landing-page/css/LineIcons.css')}}">
 
     <!--====== Font Awesome CSS ======-->
-    <link rel="stylesheet" href="landing-page/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{asset('landing-page/css/font-awesome.min.css')}}">
 
     <!--====== Bootstrap CSS ======-->
-    <link rel="stylesheet" href="landing-page/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{asset('landing-page/css/bootstrap.min.css')}}">
 
     <!--====== Default CSS ======-->
-    <link rel="stylesheet" href="landing-page/css/default.css">
+    <link rel="stylesheet" href="{{asset('landing-page/css/default.css')}}">
 
     <!--====== Style CSS ======-->
-    <link rel="stylesheet" href="landing-page/css/style.css">
-    <link href="search/css/main.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{{asset('landing-page/css/style.css')}}">
+    <link href="{{asset('search/css/main.css')}}" rel="stylesheet" />
 
 </head>
 
@@ -76,7 +76,7 @@
                     <div class="col-lg-12">
                         <nav class="navbar navbar-expand-lg" >
                             <a class="navbar-brand" href="/"><img class="logo-icon mr-2"
-                                    src="{{asset('img/stewa.png')}}" alt="logo" style="width:100px;"><span
+                                    src="{{asset('/img/stewa.png')}}" alt="logo" style="width:100px;"><span
                                     class="logo-text">SMK N 2 Pengasih</span></a>
                             <button class="navbar-toggler" type="button" data-toggle="collapse"
                                 data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -115,10 +115,6 @@
                                 </ul>
                             </div> <!-- navbar collapse -->
                             
-
-                            <!-- <div class="navbar-btn d-none d-sm-inline-block">
-                                <a class="main-btn" data-scroll-nav="0" href="#pricing">Free Trial</a>
-                            </div> -->
                         </nav> <!-- navbar -->
                     </div>
                 </div> <!-- row -->
@@ -126,44 +122,24 @@
         </div> <!-- navbar area -->
     </header>
     
-    <section id="team" class="team-area pt-120 mt-5">
+    <section id="detailBerita" class="detailBerita-area pt-120 mt-5">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-5">
-                    <div class="section-title text-center pb-30">
-                        <h3 class="title"><span>Hasil Pencarian</span></h3>
-                    </div> <!-- section title -->
-                </div>
-            </div> <!-- row -->
-            <div class="row justify-content-center">
-                @foreach($cariBuku as $data)
-                <div class="col-lg-4 col-md-7 col-sm-8">
-                    <div class="single-team text-center mt-30 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
-                        <div class="team-image">
-                            @if($data->cover)
-                            <img src="{{url('images/buku/'. $data->cover)}}" alt="image"
-                                style="margin-right: 10px; width:200px; height:250px" />
-                            @else
-                            <img src="{{url('images/buku/default.png')}}" alt="image"
-                                style="margin-right: 10px; width:200px; height:250px" />
-                            @endif
-                        </div>
-                        <div class="team-content">
-                            <h5 class="holder-name">{{$data->judul}}</h5>
-                            <p class="text">ISBN : {{$data->isbn}}</p>
-                            <p class="text">{{$data->pengarang}}</p>
-                            <p class="text">{{$data->penerbit}}</p>
-                            <p class="text">{{$data->tahun_terbit}}</p>
-                            <p class="text">{{$data->lokasi}}</p>
-                        </div>
-                    </div> <!-- single team -->
-                </div>
-
-                @endforeach
-            </div> <!-- row -->
-        </div> <!-- container -->
+            @foreach($detail as $d)
+            <div>
+               
+            </div>
+            <div class="team-image">
+                <img class="mx-auto d-block" src="{{ asset('data_file/'.$d->file) }}" style ="width:500px" alt="Berita">
+            </div>
+            <br><br>
+            <div class="container">
+                <p>{{$d->keterangan}}</p> <!-- row -->
+            </div>
+            @endforeach
+            <!-- container -->
     </section>
-
+    <br><br>
+    
     <!--====== FOOTER PART START ======-->
 
     <footer id="footer" class="footer-area pt-120">
@@ -177,7 +153,7 @@
                     </div>
                     <div class="col-lg-2 text-center">
                         <div class="subscribe-form mt-50">
-                            <a href="https://t.me/perpustewa"><img src="/landing-page/images/telegram.svg" alt="telegram" style="width:100px"></a>
+                            <a href="https://t.me/perpustewa"><img src="{{asset('/landing-page/images/telegram.svg')}}" alt="telegram" style="width:100px"></a>
                         </div>
                     </div>
                 </div> <!-- row -->
@@ -187,7 +163,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-8">
                         <div class="footer-about mt-50 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
                             <a class="logo" href="#">
-                                <img src="/img/stewa.png" alt="logo">
+                                <img src="{{asset('img/stewa.png')}}" alt="logo">
                             </a>
                             <p class="text">Perpustakaan SMK Negeri 2 Pengasih</p>
 
@@ -200,8 +176,8 @@
                                     <h4 class="title">Contact Us</h4>
                                 </div>
                                 <ul class="link">
-                                    <li><a href="https://t.me/perpustewa"><img src="/landing-page/images/telegram-filled.svg" alt="telegram" style="width:20px"><span></span>  <span>t.me/perpustewa</span></a></li>
-                                    <li><a href="/"><img src="/landing-page/images/global.svg" alt="perpus-stewa" style="width:20px"><span></span>  <span>www.perpus-stewa.com</span></a></li>
+                                    <li><a href="https://t.me/perpustewa"><img src="{{asset('/landing-page/images/telegram-filled.svg')}}" alt="telegram" style="width:20px"><span></span>  <span>t.me/perpustewa</span></a></li>
+                                    <li><a href="/"><img src="{{asset('/landing-page/images/global.svg')}}" alt="perpus-stewa" style="width:20px"><span></span>  <span>www.perpus-stewa.com</span></a></li>
                                     <li class=""><span class="text-white">Jl. KRT Kertodiningrat, Gn. Gondang, Margosari, Kec. Pengasih, Kabupaten Kulon Progo, Daerah Istimewa Yogyakarta 55652</span></li>
                                 </ul>
                             </div> <!-- footer wrapper -->
@@ -242,42 +218,42 @@
 
 
     <!--====== Jquery js ======-->
-    <script src="landing-page/js/vendor/jquery-1.12.4.min.js"></script>
-    <script src="landing-page/js/vendor/modernizr-3.7.1.min.js"></script>
+    <script src="{{asset('landing-page/js/vendor/jquery-1.12.4.min.js')}}"></script>
+    <script src="{{asset('landing-page/js/vendor/modernizr-3.7.1.min.js')}}"></script>
 
     <!--====== Bootstrap js ======-->
-    <script src="landing-page/js/popper.min.js"></script>
-    <script src="landing-page/js/bootstrap.min.js"></script>
+    <script src="{{asset('landing-page/js/popper.min.js')}}"></script>
+    <script src="{{asset('landing-page/js/bootstrap.min.js')}}"></script>
 
     <!--====== Plugins js ======-->
-    <script src="landing-page/js/plugins.js"></script>
+    <script src="{{asset('landing-page/js/plugins.js')}}"></script>
 
     <!--====== Slick js ======-->
-    <script src="landing-page/js/slick.min.js"></script>
+    <script src="{{asset('landing-page/js/slick.min.js')}}"></script>
 
     <!--====== Ajax Contact js ======-->
-    <script src="landing-page/js/ajax-contact.js"></script>
+    <script src="{{asset('landing-page/js/ajax-contact.js')}}"></script>
 
     <!--====== Counter Up js ======-->
-    <script src="landing-page/js/waypoints.min.js"></script>
-    <script src="landing-page/js/jquery.counterup.min.js"></script>
+    <script src="{{asset('landing-page/js/waypoints.min.js')}}"></script>
+    <script src="{{asset('landing-page/js/jquery.counterup.min.js')}}"></script>
 
     <!--====== Magnific Popup js ======-->
-    <script src="landing-page/js/jquery.magnific-popup.min.js"></script>
+    <script src="{{asset('landing-page/js/jquery.magnific-popup.min.js')}}"></script>
 
     <!--====== Scrolling Nav js ======-->
-    <script src="landing-page/js/jquery.easing.min.js"></script>
-    <script src="landing-page/js/scrolling-nav.js"></script>
+    <script src="{{asset('landing-page/js/jquery.easing.min.js')}}"></script>
+    <script src="{{asset('landing-page/js/scrolling-nav.js')}}"></script>
 
     <!--====== wow js ======-->
-    <script src="landing-page/js/wow.min.js"></script>
+    <script src="{{asset('landing-page/js/wow.min.js')}}"></script>
 
     <!--====== Particles js ======-->
-    <script src="landing-page/js/particles.min.js"></script>
+    <script src="{{asset('landing-page/js/particles.min.js')}}"></script>
 
     <!--====== Main js ======-->
-    <script src="landing-page/js/main.js"></script>
-    <script src="search/js/extention/choices.js"></script>
+    <script src="{{asset('landing-page/js/main.js')}}"></script>
+    <script src="{{asset('search/js/extention/choices.js"')}}></script>
     <script>
       const choices = new Choices('[data-trigger]',
       {

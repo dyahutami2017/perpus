@@ -14,7 +14,7 @@
     <link rel="shortcut icon" href="{{asset('img/stewa.png')}}" type="image/png">
 
     <!--====== Animate CSS ======-->
-    <link rel="stylesheet" href="landing-page/css/animate.css">
+    <link rel="stylesheet" href="landing-page/css/animate.css ">
 
     <!--====== Magnific Popup CSS ======-->
     <link rel="stylesheet" href="landing-page/css/magnific-popup.css">
@@ -89,24 +89,31 @@
                             <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
                                 <ul id="nav" class="navbar-nav ml-auto">
                                     <li class="nav-item">
-                                        <a class="page-scroll" href= "/">Home</a>
+                                        <a class="page-scroll" href="#home">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="page-scroll" href="#jumlah">Jumlah Buku</a>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                        <a class="page-scroll" href="#kategori">Kategori</a>
+                                        <!-- <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Kategori
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                             <a class="dropdown-item text-dark text-center" href="/fiksi">Fiksi</a>
-                                            <a class="dropdown-item text-dark text-center" href="/non-fiksi">Non Fiksi</a>
+                                            <a class="dropdown-item text-dark text-center" href="/non-fiksi">Non
+                                                Fiksi</a>
                                             <a class="dropdown-item text-dark text-center" href="/komik">Komik</a>
-                                        </div>
+                                        </div> -->
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="page-scroll" href="#berita">Berita</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="page-scroll" href="#contact">Follow Us</a>
                                     </li>
                                 </ul>
                             </div> <!-- navbar collapse -->
-
-                            <!-- <div class="navbar-btn d-none d-sm-inline-block">
-                                <a class="main-btn" data-scroll-nav="0" href="#pricing">Free Trial</a>
-                            </div> -->
                         </nav> <!-- navbar -->
                     </div>
                 </div> <!-- row -->
@@ -138,7 +145,8 @@
                                             </div>
                                         </div>
                                         <div class="input-field second-wrap">
-                                            <input id="search" type="text" name="title" style="font-family:Poppins, sans serif"
+                                            <input id="search" type="text" name="title"
+                                                style="font-family:Poppins, sans serif"
                                                 placeholder="Judul Buku/Penulis" />
                                         </div>
                                         <div class="input-field third-wrap">
@@ -173,9 +181,9 @@
     </header>
 
     <!--====== HEADER PART ENDS ======-->
-        
+
     <!--Coba 1-->
-    <section id="facts" class="video-counter pt-70">
+    <section id="jumlah" class="video-counter pt-70">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -187,7 +195,7 @@
                             </div> <!-- section title -->
                             <p class="text">Berikut data jumlah buku yang tersedia di Perpustakaan SMK N 2 Pengasih</p>
                         </div> <!-- counter content -->
-                        <div class="container ml-5">
+                        <div class="container">
                             <div class="row no-gutters">
                                 <div class="col-4">
                                     <div
@@ -203,7 +211,7 @@
                                         class="single-counter counter-color-2 d-flex align-items-center justify-content-center">
                                         <div class="counter-items text-center">
                                             <span class="count"><span class="counter">{{$fiksi->count()}}</span>
-                                            <p class="text">Fiksi</p>
+                                                <p class="text">Fiksi</p>
                                         </div>
                                     </div> <!-- single counter -->
                                 </div>
@@ -212,7 +220,7 @@
                                         class="single-counter counter-color-3 d-flex align-items-center justify-content-center">
                                         <div class="counter-items text-center">
                                             <span class="count"><span class="counter">{{$komik->count()}}</span>
-                                            <p class="text">Komik</p>
+                                                <p class="text">Komik</p>
                                         </div>
                                     </div> <!-- single counter -->
                                 </div>
@@ -226,8 +234,7 @@
     </section>
     <!--End Coba 1-->
     <!--====== KATEGORI PART START ======-->
-
-    <section id="features" class="services-area pt-120">
+    <section id="kategori" class="services-area pt-120">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-10">
@@ -265,7 +272,7 @@
                         <div class="services-content mt-30">
                             <h4 class="services-title"><a href="#">Fiksi</a></h4>
                             <p class="text">Buku mengenai cerita atau karangan seperti novel atau buku cerita </p>
-                            <a class="more" href="#">Learn More <i class="lni-chevron-right"></i></a>
+                            <a class="more" href="/fiksi">Learn More <i class="lni-chevron-right"></i></a>
                         </div>
                     </div> <!-- single services -->
                 </div>
@@ -280,28 +287,66 @@
                         <div class="services-content mt-30">
                             <h4 class="services-title"><a href="#">Komik</a></h4>
                             <p class="text">Buku komik bergambar</p><br>
-                            <a class="more" href="#">Learn More <i class="lni-chevron-right"></i></a>
+                            <a class="more" href="/komik">Learn More <i class="lni-chevron-right"></i></a>
                         </div>
                     </div> <!-- single services -->
                 </div>
             </div> <!-- row -->
         </div> <!-- container -->
     </section>
-
     <!--====== KATEGORI PART ENDS ======-->
+
+    <!--============ BERITA =============-->
+    <section id="berita" class="testimonial-area pt-120">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-5">
+                    <div class="section-title text-center pb-40">
+                        <div class="line m-auto"></div>
+                        <h3 class="title">Berita Perpustakaan</span></h3>
+                    </div> <!-- section title -->
+                </div>
+            </div> <!-- row -->
+            <div class="row testimonial-active wow fadeInUpBig" data-wow-duration="1s" data-wow-delay="0.8s">
+                @foreach($berita as $b)
+                <div class="col-lg-4">
+                    <div class="single-testimonial">
+                        <div class="testimonial-review d-flex align-items-center justify-content-between">
+                            <div class="blog-image">
+                                @if($b->file)
+                                <img src="{{url('data_file/'. $b->file)}}" alt="image" style="height:150px"/>
+                                @else
+                                <img src="{{url('images/buku/default.png')}}" alt="image"/>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="testimonial-text">
+                            <p class="text ellipsis">{{$b->keterangan}}</p>
+                        </div>
+                        <div class="services-content mt-4 mb-4 text-center">
+                            <a class="more" href="/detail-berita/{{$b->id}}">Learn More  <i class="lni-chevron-right"></i></a>
+                        </div>
+                    </div> <!-- single testimonial -->
+                </div>
+                @endforeach
+            </div>
+        </div> <!-- container -->
+    </section>
+    <!--========== END BERITA ===========-->
 
     <!--====== FOOTER PART START ======-->
 
-    <footer id="footer" class="footer-area pt-120">
+    <footer id="contact" class="footer-area pt-120">
         <div class="container">
             <div class="subscribe-area wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
                 <div class="row">
                     <div class="col-lg-10">
                         <div class="subscribe-content mt-45">
-                            <h2 class="subscribe-title">Ikuti terus info dari perpustakaan<span>dengan mengikuti channel telegram berikut</span></h2>
+                            <h2 class="subscribe-title">Ikuti terus info dari perpustakaan<span>dengan mengikuti channel
+                                    telegram berikut</span></h2>
                         </div>
                     </div>
-                    <div class="col-lg-2">
+                    <div class="col-lg-2 text-center">
                         <div class="subscribe-form mt-50">
                             <a href="https://t.me/perpustewa"><img src="/landing-page/images/telegram.svg" alt="telegram" style="width:100px"></a>
                         </div>
@@ -326,15 +371,21 @@
                                     <h4 class="title">Contact Us</h4>
                                 </div>
                                 <ul class="link">
-                                    <li><a href="https://t.me/perpustewa"><img src="/landing-page/images/telegram-filled.svg" alt="telegram" style="width:20px"><span></span>  <span>t.me/perpustewa</span></a></li>
-                                    <li><a href="/"><img src="/landing-page/images/global.svg" alt="perpus-stewa" style="width:20px"><span></span>  <span>www.perpus-stewa.com</span></a></li>
-                                    <li class=""><span class="text-white">Jl. KRT Kertodiningrat, Gn. Gondang, Margosari, Kec. Pengasih, Kabupaten Kulon Progo, Daerah Istimewa Yogyakarta 55652</span></li>
+                                    <li><a href="https://t.me/perpustewa"><img
+                                                src="/landing-page/images/telegram-filled.svg" alt="telegram"
+                                                style="width:20px"><span></span> <span>t.me/perpustewa</span></a></li>
+                                    <li><a href="/"><img src="/landing-page/images/global.svg" alt="perpus-stewa"
+                                                style="width:20px"><span></span> <span>www.perpus-stewa.com</span></a>
+                                    </li>
+                                    <li class=""><span class="text-white">Jl. KRT Kertodiningrat, Gn. Gondang,
+                                            Margosari, Kec. Pengasih, Kabupaten Kulon Progo, Daerah Istimewa Yogyakarta
+                                            55652</span></li>
                                 </ul>
                             </div> <!-- footer wrapper -->
-                            
+
                         </div> <!-- footer link -->
                     </div>
-                    
+
                 </div> <!-- row -->
             </div> <!-- footer widget -->
         </div> <!-- container -->
@@ -412,18 +463,16 @@
     });
 
     function updatemethod() {
-    let chooseKategori = document.getElementById("chKategori");
-    
-    if (chooseKategori.value === "komik") {
-        document.getElementById("formSearch").setAttribute("action", "/komik");
-    } 
-    else if (chooseKategori.value =="fiksi") {
-        document.getElementById("formSearch").setAttribute("action", "/fiksi");
-    } 
-    else if (chooseKategori.value =="non-fiksi") {
-        document.getElementById("formSearch").setAttribute("action", "/non-fiksi");
-    }            
-}
+        let chooseKategori = document.getElementById("chKategori");
+
+        if (chooseKategori.value === "komik") {
+            document.getElementById("formSearch").setAttribute("action", "/komik");
+        } else if (chooseKategori.value == "fiksi") {
+            document.getElementById("formSearch").setAttribute("action", "/fiksi");
+        } else if (chooseKategori.value == "non-fiksi") {
+            document.getElementById("formSearch").setAttribute("action", "/non-fiksi");
+        }
+    }
     </script>
 
 </body>
