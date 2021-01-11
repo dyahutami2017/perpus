@@ -137,7 +137,7 @@
                                         <div class="input-field first-wrap">
                                             <div class="input-select">
                                                 <select data-trigger="" id="chKategori" name="chKategori">
-                                                    <option placeholder="">Kategori</option>
+                                                    <option placeholder="">Pilih Kategori</option>
                                                     <option value=2>Non Fiksi</option>
                                                     <option value=3>Fiksi</option>
                                                     <option value=1>Komik</option>

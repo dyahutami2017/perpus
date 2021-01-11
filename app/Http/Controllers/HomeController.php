@@ -31,6 +31,10 @@ class HomeController extends Controller
         $transaksi = Transaksi::get();
         $anggota   = Anggota::get();
         $buku      = Buku::get();
+        $fiksi      = Buku::where('kategori_id','=',3)->count();
+        $nonFiksi   = Buku::where('kategori_id','=',2)->count();
+        $komik      = Buku::where('kategori_id','=',1)->count();
+
         if(Auth::user()->level == 'user')
         {
             $datas = Transaksi::where('status', 'pinjam')
@@ -39,7 +43,9 @@ class HomeController extends Controller
         } else {
             $datas = Transaksi::where('status', 'pinjam')->get();
         }
-        return view('home', compact('transaksi', 'anggota', 'buku', 'datas'));
+
+
+        return view('home', compact('transaksi', 'anggota', 'buku', 'datas','fiksi','nonFiksi','komik'));
     }
     public function landing()
     {
