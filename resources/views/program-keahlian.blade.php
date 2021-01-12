@@ -115,6 +115,10 @@
                                 </ul>
                             </div> <!-- navbar collapse -->
                             
+
+                            <!-- <div class="navbar-btn d-none d-sm-inline-block">
+                                <a class="main-btn" data-scroll-nav="0" href="#pricing">Free Trial</a>
+                            </div> -->
                         </nav> <!-- navbar -->
                     </div>
                 </div> <!-- row -->
@@ -127,12 +131,12 @@
             <div class="row justify-content-center">
                 <div class="col-lg-5">
                     <div class="section-title text-center pb-30">
-                        <h3 class="title"><span>Komik</span></h3>
+                        <h3 class="title"><span>Buku Program Keahlian</span></h3>
                     </div> <!-- section title -->
                 </div>
             </div> <!-- row -->
             <div class="row justify-content-center">
-                @foreach($komik as $data)
+            @foreach($programKeahlian as $data)
                 <div class="col-lg-4 col-md-7 col-sm-8">
                     <div class="single-team text-center mt-30 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
                         <div class="team-image">

@@ -135,12 +135,13 @@
                                 <form id="formSearch" method="get" action="/cari" enctype="multipart/form-data">
                                     <div class="inner-form">
                                         <div class="input-field first-wrap">
-                                            <div class="input-select">
+                                            <div class="input-select text-left">
                                                 <select data-trigger="" id="chKategori" name="chKategori">
                                                     <option placeholder="">Pilih Kategori</option>
-                                                    <option value=2>Non Fiksi</option>
-                                                    <option value=3>Fiksi</option>
-                                                    <option value=1>Komik</option>
+                                                    <option value=1>Buku Referensi</option>
+                                                    <option value=2>Buku Non Fiksi</option>
+                                                    <option value=3>Buku Fiksi dan Sastra</option>
+                                                    <option value=4>Buku Program Keahlian</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -193,11 +194,11 @@
                                 <div class="line m-auto"></div>
                                 <h3 class="title">Jumlah Buku Baru yang Tersedia</span></h3>
                             </div> <!-- section title -->
-                            <p class="text">Berikut data jumlah buku yang tersedia di Perpustakaan SMK N 2 Pengasih</p>
+                            <p class="text">Berikut data jumlah judul buku baru yang tersedia di Perpustakaan SMK N 2 Pengasih</p>
                         </div> <!-- counter content -->
                         <div class="container">
                             <div class="row no-gutters">
-                                <div class="col-4">
+                                <div class="col-3">
                                     <div
                                         class="single-counter counter-color-1 d-flex align-items-center justify-content-center">
                                         <div class="counter-items text-center">
@@ -206,21 +207,30 @@
                                         </div>
                                     </div> <!-- single counter -->
                                 </div>
-                                <div class="col-4">
+                                <div class="col-3">
                                     <div
                                         class="single-counter counter-color-2 d-flex align-items-center justify-content-center">
                                         <div class="counter-items text-center">
                                             <span class="count"><span class="counter">{{$fiksi->count()}}</span>
-                                                <p class="text">Fiksi</p>
+                                                <p class="text">Fiksi dan Sastra</p>
                                         </div>
                                     </div> <!-- single counter -->
                                 </div>
-                                <div class="col-4">
+                                <div class="col-3">
                                     <div
                                         class="single-counter counter-color-3 d-flex align-items-center justify-content-center">
                                         <div class="counter-items text-center">
-                                            <span class="count"><span class="counter">{{$komik->count()}}</span>
-                                                <p class="text">Komik</p>
+                                            <span class="count"><span class="counter">{{$referensi->count()}}</span>
+                                                <p class="text">Referensi</p>
+                                        </div>
+                                    </div> <!-- single counter -->
+                                </div>
+                                <div class="col-3">
+                                    <div
+                                        class="single-counter counter-color-4 d-flex align-items-center justify-content-center">
+                                        <div class="counter-items text-center">
+                                            <span class="count"><span class="counter">{{$programKeahlian->count()}}</span>
+                                                <p class="text">Program Keahlian</p>
                                         </div>
                                     </div> <!-- single counter -->
                                 </div>
@@ -246,7 +256,7 @@
             </div> <!-- row -->
 
             <div class="row justify-content-center">
-                <div class="col-lg-4 col-md-7 col-sm-8">
+                <div class="col-lg-3 col-md-6 col-sm-8">
                     <div class="single-services text-center mt-30 wow fadeIn" data-wow-duration="1s"
                         data-wow-delay="0.2s">
                         <div class="services-icon">
@@ -255,13 +265,13 @@
                             <i class="lni-graduation"></i>
                         </div>
                         <div class="services-content mt-30">
-                            <h4 class="services-title"><a href="#">Non Fiksi</a></h4>
+                            <h4 class="services-title"><a href="#">Buku Non Fiksi</a></h4>
                             <p class="text">Buku berkaitan dengan pembelajaran dan ilmu pengetahuan</p>
-                            <a class="more" href="/non-fiksi">Learn More <i class="lni-chevron-right"></i></a>
+                            <a class="more pt-5" href="/non-fiksi">Learn More <i class="lni-chevron-right"></i></a>
                         </div>
                     </div> <!-- single services -->
                 </div>
-                <div class="col-lg-4 col-md-7 col-sm-8">
+                <div class="col-lg-3 col-md-6 col-sm-8">
                     <div class="single-services text-center mt-30 wow fadeIn" data-wow-duration="1s"
                         data-wow-delay="0.5s">
                         <div class="services-icon">
@@ -270,24 +280,39 @@
                             <i class="lni-thought"></i>
                         </div>
                         <div class="services-content mt-30">
-                            <h4 class="services-title"><a href="#">Fiksi</a></h4>
+                            <h4 class="services-title"><a href="#">Buku Fiksi</a></h4><br>
                             <p class="text">Buku mengenai cerita atau karangan seperti novel atau buku cerita </p>
-                            <a class="more" href="/fiksi">Learn More <i class="lni-chevron-right"></i></a>
+                            <a class="more pt-5" href="/fiksi">Learn More <i class="lni-chevron-right"></i></a>
                         </div>
                     </div> <!-- single services -->
                 </div>
-                <div class="col-lg-4 col-md-7 col-sm-8">
+                <div class="col-lg-3 col-md-6 col-sm-8">
                     <div class="single-services text-center mt-30 wow fadeIn" data-wow-duration="1s"
                         data-wow-delay="0.8s">
                         <div class="services-icon">
                             <img class="shape" src="landing-page/images/services-shape.svg" alt="shape">
                             <img class="shape-1" src="landing-page/images/services-shape-3.svg" alt="shape">
-                            <i class="lni-gallery"></i>
+                            <i class="lni-world"></i>
                         </div>
                         <div class="services-content mt-30">
-                            <h4 class="services-title"><a href="#">Komik</a></h4>
-                            <p class="text">Buku komik bergambar</p><br>
-                            <a class="more" href="/komik">Learn More <i class="lni-chevron-right"></i></a>
+                            <h4 class="services-title"><a href="#">Buku Referensi</a></h4>
+                            <p class="text">Buku kamus dan ensiklopedia</p><br>
+                            <a class="more pt-5" href="/referensi">Learn More <i class="lni-chevron-right"></i></a>
+                        </div>
+                    </div> <!-- single services -->
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-8">
+                    <div class="single-services text-center mt-30 wow fadeIn" data-wow-duration="1s"
+                        data-wow-delay="0.8s">
+                        <div class="services-icon">
+                            <img class="shape" src="landing-page/images/services-shape.svg" alt="shape">
+                            <img class="shape-1" src="landing-page/images/services-shape-1.svg" alt="shape">
+                            <i class="lni-cog"></i>
+                        </div>
+                        <div class="services-content mt-30">
+                            <h4 class="services-title"><a href="#">Buku Program Keahlian</a></h4>
+                            <p class="text">Buku penunjang pembelajaran program keahlian</p><br>
+                            <a class="more" href="/program-keahlian">Learn More <i class="lni-chevron-right"></i></a>
                         </div>
                     </div> <!-- single services -->
                 </div>
@@ -324,7 +349,7 @@
                             <p class="text ellipsis">{{$b->keterangan}}</p>
                         </div>
                         <div class="services-content mt-4 mb-4 text-center">
-                            <a class="more" href="/detail-berita/{{$b->id}}">Learn More  <i class="lni-chevron-right"></i></a>
+                            <a class="more" href="/detail-berita/{{$b->id}}">Read More  <i class="lni-chevron-right"></i></a>
                         </div>
                     </div> <!-- single testimonial -->
                 </div>
@@ -462,17 +487,17 @@
         itemSelectText: '',
     });
 
-    function updatemethod() {
-        let chooseKategori = document.getElementById("chKategori");
+    // function updatemethod() {
+    //     let chooseKategori = document.getElementById("chKategori");
 
-        if (chooseKategori.value === "komik") {
-            document.getElementById("formSearch").setAttribute("action", "/komik");
-        } else if (chooseKategori.value == "fiksi") {
-            document.getElementById("formSearch").setAttribute("action", "/fiksi");
-        } else if (chooseKategori.value == "non-fiksi") {
-            document.getElementById("formSearch").setAttribute("action", "/non-fiksi");
-        }
-    }
+    //     if (chooseKategori.value === "komik") {
+    //         document.getElementById("formSearch").setAttribute("action", "/komik");
+    //     } else if (chooseKategori.value == "fiksi") {
+    //         document.getElementById("formSearch").setAttribute("action", "/fiksi");
+    //     } else if (chooseKategori.value == "non-fiksi") {
+    //         document.getElementById("formSearch").setAttribute("action", "/non-fiksi");
+    //     }
+    // }
     </script>
 
 </body>

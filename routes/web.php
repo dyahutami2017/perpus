@@ -13,15 +13,17 @@ use App\Buku;
 */
 
 Route::get('/', function () {
-    $fiksi         = \DB::table('buku')->where('kategori_id',"=",3)->get();
-    $nonFiksi      = \DB::table('buku')->where('kategori_id',"=",2)->get();
-    $komik         = \DB::table('buku')->where('kategori_id',"=",1)->get();
-    $berita        = \DB::table('berita')->get();
+    $programKeahlian     = \DB::table('buku')->where('kategori_id',"=",4)->get();
+    $fiksi               = \DB::table('buku')->where('kategori_id',"=",3)->get();
+    $nonFiksi            = \DB::table('buku')->where('kategori_id',"=",2)->get();
+    $referensi           = \DB::table('buku')->where('kategori_id',"=",1)->get();
+    $berita              = \DB::table('berita')->get();
         
-    return view('welcome')  
+    return view('welcome') 
+        ->with('programKeahlian',$programKeahlian) 
         ->with('fiksi',$fiksi)
         ->with('nonFiksi',$nonFiksi)
-        ->with('komik',$komik)
+        ->with('referensi',$referensi)
         ->with('berita',$berita);
 });
 
@@ -37,19 +39,24 @@ Route::get('/fiksi', function () {
     return view('fiksi')  
         ->with('fiksi',$fiksi);
 });
-Route::get('/komik', function () {
-    $komik          = \DB::table('buku')->where('kategori_id',"=",1)->orderBy('created_at','desc')->get();
+Route::get('/referensi', function () {
+    $referensi          = \DB::table('buku')->where('kategori_id',"=",1)->orderBy('created_at','desc')->get();
     
-    return view('komik')  
-        ->with('komik',$komik);
+    return view('referensi')  
+        ->with('referensi',$referensi);
 });
-
+Route::get('/program-keahlian', function () {
+    $programKeahlian    = \DB::table('buku')->where('kategori_id',"=",4)->orderBy('created_at','desc')->get();
+    
+    return view('program-keahlian')  
+        ->with('programKeahlian',$programKeahlian);
+});
 Route::get('/cari',function(Request $request){
     $title = $request->title;
     $chKategori = $request->chKategori;
     $cariBuku = Buku::where('kategori_id',"=",$chKategori);
     if($title){
-        $cariBuku = $cariBuku->where('judul','like','%' .$title.'%')->get();
+        $cariBuku = $cariBuku->where('judul','like','%' .$title.'%')->orWhere('pengarang','like','%' .$title. '%')->get();
     }
     else{
         $cariBuku = $cariBuku->get();

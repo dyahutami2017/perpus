@@ -20,4 +20,8 @@ class Buku extends Model
     {
     	return $this->belongsTo(Kategori::class);
     }
+    public function lokasi()
+    {
+    	return $this->belongsTo(Lokasi::class);
+    }
 }

@@ -17,7 +17,7 @@ $(document).ready(function() {
         <a href="{{ route('buku.create') }}" class="btn btn-primary btn-rounded btn-fw"><i class="fa fa-plus"></i>
             Tambah Buku</a>
     </div>
-    <div class="col-lg-3">
+    <div class="col-lg-3 text-center">
         <button class="btn btn-primary btn-rounded btn-fw" onClick="storeAnnounce()" id="storeAnnounce" disabled><i
                 class="fa fa-send"></i>Kirim Pengumuman</button>
     </div>

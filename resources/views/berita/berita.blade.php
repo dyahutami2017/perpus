@@ -17,7 +17,7 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>File</th>
+                                <th>Gambar</th>
                                 <th>Keterangan</th>
                                 <th>OPSI</th>
                             </tr>

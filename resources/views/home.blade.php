@@ -148,38 +148,25 @@
     var myChart = new Chart(ctx, {
       type: 'bar',
       data: {
-        labels: ['Fiksi dan Sastra', 'Non Fiksi', 'Komik'],
+        labels: ['Fiksi dan Sastra', 'Non Fiksi', 'Referensi','Program Keahlian'],
         datasets: [
           {
           label: 'Kategori',
-          data: [{!!$fiksi!!},{!!$nonFiksi!!},{!!$komik!!}],
+          data: [{!!$fiksi!!},{!!$nonFiksi!!},{!!$referensi!!},{!!$programKeahlian!!}],
           backgroundColor: [
 					'rgba(255, 99, 132, 0.2)',
 					'rgba(54, 162, 235, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
 					'rgba(255, 206, 86, 0.2)',
 					],
 					borderColor: [
 					'rgba(255,99,132,1)',
 					'rgba(54, 162, 235, 1)',
 					'rgba(255, 206, 86, 1)',
+					'rgba(255, 206, 86, 1)',
 					],
 					borderWidth: 1
-          // data: [{!!$nonFiksi!!}],
-          // data: [{!!$komik!!}],
-        //   backgroundColor: 'rgba(40,167,69,1)',
-        //   pointHoverBackgroundColor: 'rgba(254,86,83,.8)',
-        // },
-        // {
-        //   label: 'Non Fiksi',
-        //   data: [{!!$nonFiksi!!}],
-        //   backgroundColor: 'rgba(220,53,69,.8)',
-        //   pointHoverBackgroundColor: 'rgba(63,82,227,.8)',
-        // },
-        // {
-        //   label: 'Komik',
-        //   data: [{!!$komik!!}],
-        //   backgroundColor: 'rgba(220,53,69,.8)',
-        //   pointHoverBackgroundColor: 'rgba(63,82,227,.8)',
+    
         }]
       },
       options: {
@@ -198,78 +185,9 @@
                     }],
                 }
                 }
-      // options: {
-      //   legend: {
-      //     display: true
-      //   },
-      //   scales: {
-      //     yAxes: [{
-      //       gridLines: {
-      //         display: true,
-      //         drawBorder: true,
-      //         color: '#f2f2f2',
-      //       },
-      //       ticks: {
-      //         beginAtZero: true,
-      //         stepSize: 10,
-      //         callback: function(value, index, values) {
-      //           return value;
-      //         }
-      //       }
-      //     }],
-      //     xAxes: [{
-      //       gridLines: {
-      //         display: true,
-      //         tickMarkLength: 15,
-      //       }
-      //     }]
-      //   },
-      // }
+   
     });
 });
-// $(function(){
-//     var chartData = {
-//         labels: ["Fiksi dan Sastra", "Non-Fiksi", "Komik"],
-//         datasets: [
-//               {
-//               label: 'Non Fiksi',
-//               data: [{!!$nonFiksi!!}],
-//               fillColor: "#79D1CF",
-//               strokeColor: "#79D1CF",
-//               },
-//               {
-//               label: 'Fiksi dan Sastra',
-//               data: [{!!$fiksi!!}],
-//               fillColor: "#79D1CF",
-//               strokeColor: "#79D1CF",
-//               },
-//               {
-//               label: 'Komik',
-//               data: [{!!$komik!!}],
-//               fillColor: "#79D1CF",
-//               strokeColor: "#79D1CF",
-//               }
-//         ]
-//     };
 
-//     var ctx = document.getElementById("myChart").getContext("2d");
-//     var myLine = new Chart(ctx).Line(chartData, {
-//         showTooltips: false,
-//         onAnimationComplete: function () {
-
-//             var ctx = this.chart.ctx;
-//             ctx.font = this.scale.font;
-//             ctx.fillStyle = this.scale.textColor
-//             ctx.textAlign = "center";
-//             ctx.textBaseline = "bottom";
-
-//             this.datasets.forEach(function (dataset) {
-//                 dataset.points.forEach(function (points) {
-//                     ctx.fillText(points.value, points.x, points.y - 10);
-//                 });
-//             })
-//         }
-//     });
-// });
 </script>
 @endsection

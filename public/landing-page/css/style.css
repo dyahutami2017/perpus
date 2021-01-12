@@ -865,7 +865,10 @@ p {
   transition: all 0.3s ease-out 0s;
   padding: 50px 30px;
   border: 2px solid transparent;
-  border-radius: 8px; }
+  border-radius: 8px; 
+  height:500px;
+}
+  
   @media (max-width: 767px) {
     .single-services {
       padding: 20px 20px 30px; } }
@@ -1074,7 +1077,7 @@ p {
       position: absolute;
       content: '';
       width: 155px;
-      height: 120px;
+      height: 130px;
       border-radius: 60px;
       top: 0;
       left: 0;
@@ -1086,12 +1089,12 @@ p {
       z-index: -1; }
       @media (max-width: 767px) {
         .counter-wrapper .single-counter::before {
-          max-width: 100px;
-          height: 80px; } }
+          max-width: 90px;
+          height: 100px; } }
       @media only screen and (min-width: 576px) and (max-width: 767px) {
         .counter-wrapper .single-counter::before {
-          max-width: 155px;
-          height: 120px; } }
+          max-width: 120px;
+          height: 140px; } }
     .counter-wrapper .single-counter.counter-color-1::before {
       background: -webkit-linear-gradient(#33c8c1 0%, #119bd2 100%);
       background: -o-linear-gradient(#33c8c1 0%, #119bd2 100%);
@@ -1104,6 +1107,10 @@ p {
       background: -webkit-linear-gradient(#361cc1 0%, #2e82ef 100%);
       background: -o-linear-gradient(#361cc1 0%, #2e82ef 100%);
       background: linear-gradient(#361cc1 0%, #2e82ef 100%); }
+    .counter-wrapper .single-counter.counter-color-4::before {
+      background: -webkit-linear-gradient(#1ef5b4 0%, #00ffdd 100%);
+      background: -o-linear-gradient(#1ef5b4 0%, #00ffdd 100%);
+      background: linear-gradient(#1ef5b4 0%, #00ffdd 100%); }
     .counter-wrapper .single-counter .count {
       font-size: 22px;
       font-weight: 700;

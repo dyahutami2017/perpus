@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Buku;
 use App\Kategori;
+use App\Lokasi;
 use Carbon\Carbon;
 use Session;
 use Illuminate\Support\Facades\Redirect;
@@ -34,9 +35,8 @@ class BukuController extends Controller
             return redirect()->to('/');
         }
 
-                      
         $datas = Buku::with('kategori')->orderBy('created_at','desc')->get();
-        //$datas = Buku::get();
+
         return view('buku.index')
             ->with('datas',$datas);
     }
@@ -49,7 +49,7 @@ class BukuController extends Controller
     public function create()
     {
         $data['kategori'] = Kategori::all('jenis_kategori', 'id');
-
+        //$data['lokasi'] = Lokasi::all('nama_lokasi', 'id');
         if(Auth::user()->level == 'user') {
             Alert::info('Oopss..', 'Anda dilarang masuk ke area ini.');
             return redirect()->to('/');
@@ -60,7 +60,7 @@ class BukuController extends Controller
 
     public function format()
     {
-        $data = [['judul' => null,'kategori' => '1 untuk Komik/2 untuk Non Fiksi/3 untuk Fiksi', 'isbn' => null, 'pengarang' => null, 'penerbit' => null, 'tahun_terbit' => null, 'jumlah_buku' => null, 'deskripsi' => null, 'lokasi' => 'rak1/rak2/rak3']];
+        $data = [['judul' => null,'kategori' => '1 untuk Referensi/2 untuk Non Fiksi/3 untuk Fiksi/4 untuk buku program keahlian', 'isbn' => null, 'pengarang' => null, 'penerbit' => null, 'tahun_terbit' => null, 'jumlah_buku' => null, 'deskripsi' => null, 'lokasi' => 'Rak 000-900,Rak Novel/Fiksi,Rak Referensi, Rak Program Keahlian']];
             $fileName = 'format-buku';
             
 
@@ -167,9 +167,11 @@ class BukuController extends Controller
         
         
         $data = Buku::with('kategori')->findOrFail($id);
+       
         //$data = Buku::findOrFail($id);
         return view('buku.show')
             ->with('data',$data);
+           
     }
 
     /**
@@ -208,30 +210,57 @@ class BukuController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if($request->file('cover')) {
-            $file = $request->file('cover');
-            $dt = Carbon::now();
-            $acak  = $file->getClientOriginalExtension();
-            $fileName = rand(11111,99999).'-'.$dt->format('Y-m-d-H-i-s').'.'.$acak; 
-            $request->file('cover')->move("images/buku", $fileName);
-            $cover = $fileName;
-        } else {
-            $cover = NULL;
+        $buku_cover = Buku::where('id',$id)->first();
+        
+        
+        if($request->hasfile('cover')){
+            $file_old = 'images/buku/'.$buku_cover->cover;
+            unlink($file_old);
+
+            $file = $request->cover;
+            $filename = time()."_".$file->getClientOriginalName();
+            $file->move('images/buku', $filename);
+
+            Buku::find($id)->update([
+                    'judul' => $request->get('judul'),
+                    'kategori_id' => $request->kategori,
+                    'isbn' => $request->get('isbn'),
+                    'pengarang' => $request->get('pengarang'),
+                    'penerbit' => $request->get('penerbit'),
+                    'tahun_terbit' => $request->get('tahun_terbit'),
+                    'jumlah_buku' => $request->get('jumlah_buku'),
+                    'deskripsi' => $request->get('deskripsi'),
+                    'lokasi' => $request->get('lokasi'),
+                    'cover' => $filename
+                   ]);
+   
         }
+        else{
+            Buku::find($id)->update([
+                    'judul' => $request->get('judul'),
+                    'kategori_id' => $request->kategori,
+                    'isbn' => $request->get('isbn'),
+                    'pengarang' => $request->get('pengarang'),
+                    'penerbit' => $request->get('penerbit'),
+                    'tahun_terbit' => $request->get('tahun_terbit'),
+                    'jumlah_buku' => $request->get('jumlah_buku'),
+                    'deskripsi' => $request->get('deskripsi'),
+                    'lokasi' => $request->get('lokasi'),
+                   ]);
+   
+        }
+        // if($request->file('cover')) {
+        //     $file = $request->file('cover');
+        //     $dt = Carbon::now();
+        //     $acak  = $file->getClientOriginalExtension();
+        //     $fileName = rand(11111,99999).'-'.$dt->format('Y-m-d-H-i-s').'.'.$acak; 
+        //     $request->file('cover')->move("images/buku", $fileName);
+        //     $cover = $fileName;
+        // } else {
+        //     $cover = NULL;
+        // }
 
-        Buku::find($id)->update([
-             'judul' => $request->get('judul'),
-             'kategori_id' => $request->kategori,
-                'isbn' => $request->get('isbn'),
-                'pengarang' => $request->get('pengarang'),
-                'penerbit' => $request->get('penerbit'),
-                'tahun_terbit' => $request->get('tahun_terbit'),
-                'jumlah_buku' => $request->get('jumlah_buku'),
-                'deskripsi' => $request->get('deskripsi'),
-                'lokasi' => $request->get('lokasi'),
-                'cover' => $cover
-                ]);
-
+        
         alert()->success('Berhasil.','Data telah diubah!');
         return redirect()->route('buku.index');
     }

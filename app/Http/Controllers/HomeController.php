@@ -28,12 +28,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $transaksi = Transaksi::get();
-        $anggota   = Anggota::get();
-        $buku      = Buku::get();
-        $fiksi      = Buku::where('kategori_id','=',3)->count();
-        $nonFiksi   = Buku::where('kategori_id','=',2)->count();
-        $komik      = Buku::where('kategori_id','=',1)->count();
+        $transaksi      = Transaksi::get();
+        $anggota        = Anggota::get();
+        $buku           = Buku::get();
+        $programKeahlian= Buku::where('kategori_id','=',4)->count();
+        $fiksi          = Buku::where('kategori_id','=',3)->count();
+        $nonFiksi       = Buku::where('kategori_id','=',2)->count();
+        $referensi      = Buku::where('kategori_id','=',1)->count();
 
         if(Auth::user()->level == 'user')
         {
@@ -45,7 +46,7 @@ class HomeController extends Controller
         }
 
 
-        return view('home', compact('transaksi', 'anggota', 'buku', 'datas','fiksi','nonFiksi','komik'));
+        return view('home', compact('transaksi', 'anggota', 'buku', 'datas','fiksi','nonFiksi','referensi','programKeahlian'));
     }
     public function landing()
     {

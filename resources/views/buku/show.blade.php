@@ -142,9 +142,19 @@ $(document).ready(function() {
                             <label for="lokasi" class="col-md-4 control-label">Lokasi</label>
                             <div class="col-md-6">
                             <select class="form-control" name="lokasi" disabled="">
-                                <option value="rak1" {{$data->lokasi === "rak1" ? "selected" : ""}}>Rak 1</option>
-                                <option value="rak2" {{$data->lokasi === "rak2" ? "selected" : ""}}>Rak 2</option>
-                                <option value="rak3" {{$data->lokasi === "rak3" ? "selected" : ""}}>Rak 3</option>
+                                <option value="Rak 000" {{$data->lokasi === "Rak 000" ? "selected" : ""}}>Rak 000</option>
+                                <option value="Rak 100" {{$data->lokasi === "Rak 100" ? "selected" : ""}}>Rak 100</option>
+                                <option value="Rak 200" {{$data->lokasi === "Rak 200" ? "selected" : ""}}>Rak 200</option>
+                                <option value="Rak 300" {{$data->lokasi === "Rak 300" ? "selected" : ""}}>Rak 300</option>
+                                <option value="Rak 400" {{$data->lokasi === "Rak 400" ? "selected" : ""}}>Rak 400</option>
+                                <option value="Rak 500" {{$data->lokasi === "Rak 500" ? "selected" : ""}}>Rak 500</option>
+                                <option value="Rak 600" {{$data->lokasi === "Rak 600" ? "selected" : ""}}>Rak 600</option>
+                                <option value="Rak 700" {{$data->lokasi === "Rak 700" ? "selected" : ""}}>Rak 700</option>
+                                <option value="Rak 800" {{$data->lokasi === "Rak 800" ? "selected" : ""}}>Rak 800</option>
+                                <option value="Rak 900" {{$data->lokasi === "Rak 900" ? "selected" : ""}}>Rak 900</option>
+                                <option value="Rak Novel/Fiksi" {{$data->lokasi === "Rak Novel/Fiksi" ? "selected" : ""}}>Rak Novel/Fiksi</option>
+                                <option value="Rak Referensi" {{$data->lokasi === "Rak Referensi" ? "selected" : ""}}>Rak Referensi</option>
+                                <option value="Rak Program Keahlian" {{$data->lokasi === "Rak Program Keahlian" ? "selected" : ""}}>Rak Program Keahlian</option>
                             </select>
                             </div>
                         </div>

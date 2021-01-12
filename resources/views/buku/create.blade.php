@@ -137,10 +137,18 @@ $(document).ready(function() {
                             <label for="lokasi" class="col-md-4 control-label">Lokasi</label>
                             <div class="col-md-6">
                             <select class="form-control" name="lokasi" required="">
-                                <option value=""></option>
-                                <option value="rak1">Rak 1</option>
-                                <option value="rak2">Rak 2</option>
-                                <option value="rak3">Rak 3</option>
+                                <option value="Rak 000">Rak 000</option>
+                                <option value="Rak 100">Rak 100</option>
+                                <option value="Rak 200">Rak 200</option>
+                                <option value="Rak 300">Rak 300</option>
+                                <option value="Rak 400">Rak 400</option>
+                                <option value="Rak 500">Rak 500</option>
+                                <option value="Rak 600">Rak 700</option>
+                                <option value="Rak 800">Rak 800</option>
+                                <option value="Rak 900">Rak 900</option>
+                                <option value="Rak Novel/Fiksi">Rak Novel/Fiksi</option>
+                                <option value="Rak Referensi">Rak Referensi</option>
+                                <option value="Rak Program Keahlian">Rak Program Keahlian</option>
                             </select>
                             </div>
                         </div>

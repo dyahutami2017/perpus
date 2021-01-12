@@ -96,7 +96,7 @@ class LaporanController extends Controller
         $sheet->fromArray($datasheet);
     });
 
-})->export('xls');
+})->export('xlsx');
 
 }
 
